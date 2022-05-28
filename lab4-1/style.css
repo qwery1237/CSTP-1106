@@ -1,39 +1,41 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 h1 {
-    margin: 0;
+  margin: 0;
 }
-ul,li {
-    all: unset
+ul,
+li {
+  all: unset;
 }
 
 .red-box {
-    background-color: tomato;
-    color: white;
-    text-align: center;
+  background-color: tomato;
+  color: white;
+  text-align: center;
 }
 
 #article {
-    display: flex;
-    height: 400px;
-
+  display: flex;
+  height: 400px;
 }
 
 #nav {
-    width: 30%;
-    background-color:dodgerblue ;
-    padding: 10px;
+  width: 30%;
+  background-color: dodgerblue;
+  padding: 10px;
+  float: left;
 }
 
 #content {
-    width: 70%;
-    background-color: mediumseagreen;
-    padding: 10px;
+  width: 70%;
+  background-color: mediumseagreen;
+  padding: 10px;
+  float: right;
 }
 
 ul {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
