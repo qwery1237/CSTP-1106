@@ -38,6 +38,5 @@ else if (score >= 50) {
 else if (score < 50){
     grade = "F"
 }
-const grade = document.getElementById("grade")
-grade.innerText = grade
+document.getElementById("grade").innerText = grade;
 
