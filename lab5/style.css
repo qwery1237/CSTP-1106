@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+header {
+  height: 50px;
+}
+ul {
+  list-style: none;
+}
+
+.padding-left-none {
+  padding-left: 0px;
+}
+li {
+  margin-bottom: 5px;
+}
+a {
+  color: #0645ad;
+  text-decoration: none;
+}
+li:hover > a,
+a:hover {
+  text-decoration: underline;
+}
+.black-a {
+  color: inherit;
+}
+sup {
+  color: #0645ad;
+}
+h1 {
+  margin-bottom: 5px;
+}
+h1 > span {
+  font-family: serif;
+}
+h2 {
+  margin-bottom: 5px;
+}
+#content {
+  display: flex;
+}
+#links {
+  width: 15%;
+  padding-top: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #f6f6f6;
+}
+#article {
+  width: 85%;
+  padding-left: 15px;
+}
+#article-content {
+  display: flex;
+  padding-top: 40px;
+  margin-bottom: 100px;
+}
+#article-paragraphs {
+  width: 100%;
+  margin-right: -250px;
+  padding-right: 275px;
+  float: left;
+}
+#article-img {
+  width: 250px;
+  float: right;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border: solid 1px #a2a9b1;
+  border-width: 1.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#article-img span:first-child {
+  text-align: center;
+  background-color: #c1e0ff;
+  margin-bottom: 10px;
+}
+#article-img img {
+  width: 100%;
+  height: 250px;
+}
+
+#sector {
+  display: flex;
+  margin-bottom: 100px;
+}
+#sector-links {
+  background-color: #f8f9fa;
+  border: solid 1px #a2a9b1;
+  border-width: 1.5px;
+  width: 30%;
+  margin-right: 150px;
+  padding: 8px;
+}
+#sector-links span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#sector-content {
+  width: 70%;
+}
+#sector-content span h2 {
+  font-family: serif;
+}
+#pre-match-content {
+  display: flex;
+}
+#pre-match-content > div:first-child {
+  float: left;
+  width: 100%;
+  margin-right: -250px;
+  padding-right: 275px;
+}
+#frenchman-img {
+  width: 250px;
+  float: right;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border: solid 1px #a2a9b1;
+  border-width: 1.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#frenchman-img img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+#references {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+#references > div {
+  width: 30%;
+  height: auto;
+}
