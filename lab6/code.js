@@ -22,13 +22,13 @@ else {
     if (d<0) {
         document.getElementById("answer").innerText = "No Real Answer. Fail to take the square root of Negative value."
     }
-    else if (d=0) {
-        x1=(-b+sqrt(d))/(2*a)
+    else if (d==0) {
+        x1=(-b+Math.sqrt(d))/(2*a)
         document.getElementById("answer").innerText = "x1,x2 = "+x1
     }
     else {
-        x1=(-b+sqrt(d))/(2*a)
-        x2=(-b-sqrt(d))/(2*a)
+        x1=(-b+Math.sqrt(d))/(2*a)
+        x2=(-b-Math.sqrt(d))/(2*a)
         document.getElementById("answer").innerText = `x1 = ${x1}, x2 = ${x2}`
     }
 }
