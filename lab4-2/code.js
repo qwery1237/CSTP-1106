@@ -8,7 +8,7 @@ while (true) {
         score = prompt("Please enter your score");
         countTry++;
     };
-    if ( !score==null || !isNaN(parseInt(score))){
+    if ( !score==null || !isNaN(score)){
         score = parseInt(score)
 
         if (score >= 0 && score <= 100 ) {
