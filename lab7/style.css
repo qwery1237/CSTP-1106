@@ -7,6 +7,7 @@ body {
 }
 a {
   text-decoration: none;
+  text-align: center;
 }
 #header {
   text-align: center;
@@ -60,5 +61,13 @@ a {
   }
   #content_right {
     padding-left: 0;
+  }
+}
+@media screen and (max-width: 300px) {
+  #nav a {
+    float: none !important;
+  }
+  img {
+    width: 100% !important;
   }
 }
