@@ -44,7 +44,21 @@ a {
 #content_right {
   width: 30%;
   float: right;
+  padding-left: 10px;
 }
 #footer {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  #content {
+    display: flex;
+    flex-direction: column;
+  }
+  #content > div {
+    width: 100%;
+  }
+  #content_right {
+    padding-left: 0;
+  }
 }
