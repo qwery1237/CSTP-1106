@@ -1,0 +1,159 @@
+commit f2ab0c0305b5220459ac146a165ea442329b7d60
+Author: qwery1237 <jinsu4768@gmail.com>
+Date:   Fri Jun 24 11:32:44 2022 -0700
+
+    lab9-1
+
+diff --git a/.DS_Store b/.DS_Store
+index 0b75622..c05d3a8 100644
+Binary files a/.DS_Store and b/.DS_Store differ
+diff --git a/home.html b/home.html
+index 42ab077..ba6932e 100644
+--- a/home.html
++++ b/home.html
+@@ -35,6 +35,12 @@
+       <li>
+         <a href="lab8/index.html">Lab 8</a>
+       </li>
++      <li>
++        <a href="lab9-1/index.html">Lab 9-1</a>
++      </li>
++      <li>
++        <a href="lab9-2/index.html">Lab 9-2</a>
++      </li>
+     </ul>
+   </body>
+ </html>
+diff --git a/lab9-1/code.js b/lab9-1/code.js
+new file mode 100644
+index 0000000..4a49269
+--- /dev/null
++++ b/lab9-1/code.js
+@@ -0,0 +1,37 @@
++const operators = document.getElementById("operators")
++let historyNum = 0;
++operators.onclick = function (event) {
++    if (!"+-*/".includes(event.target.value)){
++        return 0;
++    }
++    const firstNum = parseInt(document.getElementById('firstNum').value);
++    const secondNum = parseInt(document.getElementById('secondNum').value);
++    let resultofCal;
++    const resultHistoryP = document.getElementById("resultHistory");
++    const resultHistory = document.createElement('span');
++    if (event.target.value == "+" ){
++        resultofCal = firstNum + secondNum;
++        resultHistory.setAttribute("class","plus");
++    }
++    else if (event.target.value == "-" ){
++        resultofCal = firstNum - secondNum;
++        resultHistory.setAttribute("class","minus");
++    }
++    else if (event.target.value == "*" ){
++        resultofCal = firstNum * secondNum;
++        resultHistory.setAttribute("class","multiplication");
++    }
++    else {
++        resultofCal = firstNum / secondNum;
++        resultHistory.setAttribute("class","division");
++    }
++    resultHistory.innerText = `${firstNum} ${event.target.value} ${secondNum} = ${resultofCal}`
++    document.getElementById('result').innerText = `Result: ${firstNum} ${event.target.value} ${secondNum} = ${resultofCal}`;
++    if (++historyNum<=10){
++        resultHistoryP.prepend(resultHistory);
++    }
++    else {
++        resultHistoryP.removeChild(resultHistoryP.lastChild);
++        resultHistoryP.prepend(resultHistory);
++    }
++}
+diff --git a/lab9-1/index.html b/lab9-1/index.html
+new file mode 100644
+index 0000000..9dd4586
+--- /dev/null
++++ b/lab9-1/index.html
+@@ -0,0 +1,31 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>LAB 9-1 | CSTP-1106</title>
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body>
++    <form>
++      <label for="firstNum">First operand:</label>
++      <input type="number" name="firstNum" id="firstNum" />
++      <br />
++      <label for="secondNum">Second operand:</label>
++      <input type="number" name="secondNum" id="secondNum" />
++      <br />
++      <div id="operators">
++        <input type="button" value="+" required />
++        <input type="button" value="-" required />
++        <input type="button" value="*" required />
++        <input type="button" value="/" required />
++      </div>
++    </form>
++    <span id="result">Result: </span>
++    <h2>History</h2>
++    <p id="resultHistory"></p>
++    <a href="../home.html">Go back to homepage!</a>
++  </body>
++  <script src="code.js"></script>
++</html>
+diff --git a/lab9-1/style.css b/lab9-1/style.css
+new file mode 100644
+index 0000000..668a131
+--- /dev/null
++++ b/lab9-1/style.css
+@@ -0,0 +1,20 @@
++p {
++  display: flex;
++  flex-direction: column;
++}
++.plus {
++  background-color: coral;
++  margin-bottom: 5px;
++}
++.minus {
++  background-color: violet;
++  margin-bottom: 5px;
++}
++.multiplication {
++  background-color: yellowgreen;
++  margin-bottom: 5px;
++}
++.division {
++  background-color: cornflowerblue;
++  margin-bottom: 5px;
++}
+diff --git a/lab9-2/code.js b/lab9-2/code.js
+new file mode 100644
+index 0000000..e69de29
+diff --git a/lab9-2/index.html b/lab9-2/index.html
+new file mode 100644
+index 0000000..b5fcf02
+--- /dev/null
++++ b/lab9-2/index.html
+@@ -0,0 +1,15 @@
++<!DOCTYPE html>
++<html lang="en">
++  <head>
++    <meta charset="UTF-8" />
++    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
++    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
++    <title>LAB 9-2 | CSTP-1106</title>
++    <link rel="stylesheet" href="style.css" />
++  </head>
++  <body>
++    <h2 id="grade"></h2>
++    <a href="../home.html">Go back to homepage!</a>
++  </body>
++  <script src="code.js"></script>
++</html>
+diff --git a/lab9-2/style.css b/lab9-2/style.css
+new file mode 100644
+index 0000000..e69de29

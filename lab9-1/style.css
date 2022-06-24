@@ -1,0 +1,20 @@
+p {
+  display: flex;
+  flex-direction: column;
+}
+.plus {
+  background-color: coral;
+  margin-bottom: 5px;
+}
+.minus {
+  background-color: violet;
+  margin-bottom: 5px;
+}
+.multiplication {
+  background-color: yellowgreen;
+  margin-bottom: 5px;
+}
+.division {
+  background-color: cornflowerblue;
+  margin-bottom: 5px;
+}
