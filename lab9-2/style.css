@@ -1,0 +1,44 @@
+p {
+  display: flex;
+  flex-direction: column;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form > * {
+  margin-bottom: 3px;
+}
+
+form > div {
+  width: fit-content;
+}
+
+.numInput {
+  width: 15%;
+}
+.plus {
+  margin-bottom: 3px;
+  width: fit-content;
+  background-color: cyan;
+  padding: 3px;
+}
+.minus {
+  margin-bottom: 3px;
+  width: fit-content;
+  background-color: deeppink;
+  padding: 3px;
+}
+.multiplication {
+  margin-bottom: 3px;
+  width: fit-content;
+  background-color: khaki;
+  padding: 3px;
+}
+.division {
+  margin-bottom: 3px;
+  width: fit-content;
+  background-color: lightgreen;
+  padding: 3px;
+}
