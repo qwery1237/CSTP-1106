@@ -34,8 +34,4 @@ operators.onclick = function (event) {
         resultHistoryP.removeChild(resultHistoryP.lastChild);
         resultHistoryP.prepend(resultHistory);
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes
