@@ -5,7 +5,7 @@ const operatorbtns = id("operators");
 let historyNum = 0;
 operatorbtns.onclick = function (event){
     if (!"+-*/".includes(event.target.value)){
-        return 0;
+        return;
     }
     let result;
     const firstNum = parseInt(id('firstNum').value);
@@ -40,8 +40,9 @@ operatorbtns.onclick = function (event){
         id('history').removeChild(id('history').lastChild);
         historyNum--;
     }
-    deleteBtn.onclick = function (event) {
-        deleteBtn.parentNode.remove();
+    deleteBtn.onclick = function() {
+        console.log(this);
+        this.parentNode.remove();
         historyNum--;
     }
 
