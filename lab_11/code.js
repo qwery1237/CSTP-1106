@@ -11,11 +11,17 @@ function getMovieInfo(movieArr) {
         </div>`)
     })
     $('button').click((button)=>{
-        (button.target.id !== 'y') ? console.log(1) : console.log(2); 
+        if (button.target.id === 'y'){
+            return;
+        }
+        else {
+            $('#backdrop_img').html(`<img class = "bdr_img" src="https://image.tmdb.org/t/p/w500/${movieArr.results[button.target.id.slice(7)].poster_path}" ><br>`)
+        }
     });
 }
 function init_ajax(){
     $('#results').html('')
+    $('#backdrop_img').html('')
     const x = $('#x').val()
     $.ajax({
         url:`https://api.themoviedb.org/3/search/movie?api_key=a467db69048c41114e360cf1b32a063f&language=en-US&query=${x}&page=1&include_adult=false`,

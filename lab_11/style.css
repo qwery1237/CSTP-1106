@@ -3,3 +3,12 @@
 .movie_img {
     width: 45vw;
 }
+#main {
+    display: flex;
+}
+#backdrop_img {
+    margin: 20px;
+}
+.bdr_img {
+    width: 22.5vw;
+}
