@@ -15,7 +15,7 @@ function getMovieInfo(movieArr) {
             return;
         }
         else {
-            $('#backdrop_img').html(`<img class = "bdr_img" src="https://image.tmdb.org/t/p/w500/${movieArr.results[button.target.id.slice(7)].poster_path}" ><br>`)
+            $('#backdrop_img').html(`<img class = "bdr_img" src="https://image.tmdb.org/t/p/w500/${movieArr.results[button.target.id.slice(7)].backdrop_path}" ><br>`)
         }
     });
 }
