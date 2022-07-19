@@ -1,7 +1,6 @@
 'use strict';
 function getMovieInfo(movieArr) {
     // $('#results').html(JSON.stringify(movieArr.results))
-    console.log(movieArr.results)
     movieArr.results.forEach((movie,index) => {
         $('#results').append(`<div>
             <div class = "movie_title"><h3>${movie.original_title}</h3></div>
