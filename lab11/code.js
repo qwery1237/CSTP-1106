@@ -1,21 +1,34 @@
 'use strict';
-const setup = () => $('#x').click(search_)
-const search_ = () => {
-    const y = $('#y').val() ;
+function getMovieInfo(movieArr) {
+    // $('#results').html(JSON.stringify(movieArr.results))
+    movieArr.results.forEach((movie,index) => {
+        $('#results').append(`<div>
+            <div class = "movie_title"><h3>${movie.original_title}</h3></div>
+            <div class = "movie_overview">${movie.overview}</div><br>
+            <img class = "movie_img" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" ><br>
+            <button id = "button_${index}">backdrop image!</button>
+        </div>`)
+    })
+    $('button').click((button)=>{
+        if (button.target.id === 'y'){
+            return;
+        }
+        else {
+            $('#backdrop_img').html(`<img class = "bdr_img" src="https://image.tmdb.org/t/p/w500/${movieArr.results[button.target.id.slice(7)].backdrop_path}" ><br>`)
+        }
+    });
+}
+function init_ajax(){
+    $('#results').html('')
+    $('#backdrop_img').html('')
+    const x = $('#x').val()
     $.ajax({
-        url: `https://api.themoviedb.org/3/search/movie?api_key=a467db69048c41114e360cf1b32a063f&language=en-US&query=${y}&page=1&include_adult=false`,
-        type: 'get',
-        success: process_res
+        url:`https://api.themoviedb.org/3/search/movie?api_key=a467db69048c41114e360cf1b32a063f&language=en-US&query=${x}&page=1&include_adult=false`,
+        type: "GET",
+        success: getMovieInfo
     })
 }
-function process_res (data) {
-
-    console.log(data);
-    $('#result').append(`<span>${JSON.stringify(data)}</span>`)
-    // for (i = 0; i < data.results.length; i++){
-    //     $("#result").append(JSON.stringify(data.results[i].original_title) + "<br>")
-    //     $("#result").append(JSON.stringify(data.results[i].overview) + "<br><br>")
-    //     $("#result").append(`<img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}">`)
-    // }
+function setup() {
+    $('#y').click(init_ajax);
 }
 $(document).ready(setup)
