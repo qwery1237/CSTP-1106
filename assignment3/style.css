@@ -1,3 +1,8 @@
+hr {
+  border: none;
+  background: rgb(206, 205, 205);
+  height: 2px;
+}
 #main {
   margin-top: 30px;
   display: flex;
@@ -7,14 +12,25 @@
   margin-right: 20px;
 }
 #backdrop_img > img {
-  max-width: 100%;
+  max-width: 50%;
+  min-width: 150px;
   height: auto;
+}
+#page_buttons {
+  margin-top: 3px;
 }
 .movie_info > * {
   display: flex;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 .movie_info > img {
-  max-width: 100%;
+  max-width: 30%;
+  min-width: 100px;
   height: auto;
+}
+.page_btn {
+  margin-right: 2px;
+}
+.hidden {
+  display: none;
 }

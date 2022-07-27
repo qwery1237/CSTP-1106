@@ -1,8 +1,75 @@
 let page_size;
-let num_of_page;
 let movies_arr;
-let crr_page_num = 0
-let search_keyword = ""
+let crr_page_num = 1
+let num_of_page;
+
+const content_empty = () => {
+
+    $('#results').empty()
+    $('#backdrop_img').empty()
+
+}
+
+const create_page_btn = () => {
+
+    page_size = +($('#page_size').val())
+    crr_page_num = 1
+    num_of_page = Math.ceil(movies_arr.length/page_size)
+    let page_num = 1
+
+    $('#page_buttons').empty()
+    $('#page_buttons').append(`<button id = 'page_first' class = "page_btn">First</button>`)
+    $('#page_buttons').append(`<button id = 'page_prev' class = "page_btn">Prev.</button>`)
+
+    while (page_num <= num_of_page) {
+
+        $('#page_buttons').append(`<button id = 'page_${page_num}' class = "page_btn">${page_num}</button>`)
+        page_num++
+
+    }
+
+    $('#page_buttons').append(`<button id = 'page_next' class = "page_btn">Next</button>`)
+    $('#page_buttons').append(`<button id = 'page_last' class = "page_btn">Last</button>`)
+
+}
+
+const display_content = () =>{
+
+    let movie_info = ""
+
+    for (let movie in movies_arr) {
+        
+        const movie_crr_i = +(movie)+page_size*(crr_page_num -1)
+
+        if (+movie < page_size && movie_crr_i <20) {
+
+            movie_info += `
+            <div id = "movie_${movie_crr_i}" class = 'movie_info'>
+                <span>#${movie_crr_i+1}</span>
+                <span>${movies_arr[movie_crr_i].original_title}</span>
+                <span>${movies_arr[movie_crr_i].overview}</span>
+                <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].poster_path}">
+                <button id = "${movies_arr[movie_crr_i].backdrop_path}" class = "backdrop_btn" >Backdrop Image!</button>
+            </div>
+            <div id="backdrop_img" class = "hidden"></div>
+            <hr>
+            `
+        
+        }
+        else {
+
+            break
+
+        }
+
+    }
+    console.log(movie_info)
+    $('#results').append(
+        `<div>
+            ${movie_info}
+        </div>`)
+
+}
 
 const get_backdrop_img = (event) => {
 
@@ -12,133 +79,60 @@ const get_backdrop_img = (event) => {
 }
 
 const change_page_size = () => {
-
-    const crr_search_keyword = $('#movie_title').val()
     
-    if (search_keyword === crr_search_keyword) {
-
-        call_ajax()
-    
-    }
-    else {
-
-        $('#results').empty()
-        $('#page_buttons').empty()
-        $('#backdrop_img').empty()
-
-        crr_page_num = 0
-        page_size = +($('#page_size').val())
-        num_of_page = Math.ceil(movies_arr.length/page_size)
-
-        while(++crr_page_num <= num_of_page){
-
-            $('#page_buttons').append(`<button id = 'page_${crr_page_num}' class = "page_btn">${crr_page_num}</button>`)
-        
-        }
-        crr_page_num = 1
-        let movie_info = ""
-
-        for (let movie in movies_arr) {
-            
-            const movie_crr_i = +(movie)+page_size*(crr_page_num -1)
-
-            if (movie < page_size && movie_crr_i <20){
-
-                movie_info += 
-                `<div id = "movie_${movie_crr_i}" class = 'movie_info'>
-                <span>${movies_arr[movie_crr_i].original_title}</span>
-                <span>${movies_arr[movie_crr_i].overview}</span>
-                <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].poster_path}">
-                <button id = "${movies_arr[movie_crr_i].backdrop_path}" class = "backdrop_btn" >Backdrop Image!</button>
-                </div>`
-            
-            }
-        }
-
-        $('#results').append(
-            `<div>
-                ${movie_info}
-            </div>`)
-
-    } 
+    content_empty()
+    create_page_btn()
+    display_content()
 
 }
 
 const change_movie_info = (event) => {
 
-    $('#results').empty()
-    $('#backdrop_img').empty()
+    const clicked_btn = event.target.id.split('_')[1]
 
-    crr_page_num = +(event.target.id.split('_')[1])
-    let movie_info = ""
+    switch (clicked_btn) {
 
-    for (let movie in movies_arr) {
-        
-        const movie_crr_i = +(movie)+page_size*(crr_page_num -1)
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7': 
+            crr_page_num = +clicked_btn
+            break
+        case 'first':
+            crr_page_num = 1
+            break
+        case 'last':
+            crr_page_num = num_of_page
+            break
+        case 'prev':
+            (crr_page_num > 1) ? crr_page_num-- : null
+            break
+        default:
+            (crr_page_num < num_of_page) ? crr_page_num++ : null
 
-        if (movie < page_size && movie_crr_i <20){
-
-            movie_info += 
-            `<div id = "movie_${movie_crr_i}" class = 'movie_info'>
-            <span>${movies_arr[movie_crr_i].original_title}</span>
-            <span>${movies_arr[movie_crr_i].overview}</span>
-            <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].poster_path}">
-            <button id = "${movies_arr[movie_crr_i].backdrop_path}" class = "backdrop_btn" >Backdrop Image!</button>
-            </div>`
-        
-        }
     }
 
-    $('#results').append(
-        `<div>
-            ${movie_info}
-        </div>`)
+    content_empty()
+    display_content()
     
 }
 
 const get_movie_info = (movies_data) => {
 
-    $('#results').empty()
-    $('#page_buttons').empty()
-    $('#backdrop_img').empty()
-
-    page_size = +($('#page_size').val())
-    crr_page_num = 0
     movies_arr = movies_data.results
-    num_of_page = Math.ceil(movies_arr.length/page_size)
-    let movie_info = ""
 
-    while(++crr_page_num <= num_of_page){
-
-        $('#page_buttons').append(`<button id = 'page_${crr_page_num}' class = "page_btn">${crr_page_num}</button>`)
-    
-    }
-
-    for (let movie in movies_arr) {
-
-        if (movie < page_size){
-        
-            movie_info += 
-            `<div id = "movie_${movie}" class = 'movie_info'>
-            <span>${movies_arr[movie].original_title}</span>
-            <span>${movies_arr[movie].overview}</span>
-            <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie].poster_path}">
-            <button id = "${movies_arr[movie].backdrop_path}" class = "backdrop_btn" >Backdrop Image!</button>
-            </div>`
-        
-        }
-    }
-
-    $('#results').append(
-        `<div>
-            ${movie_info}
-        </div>`)
+    content_empty()
+    create_page_btn()
+    display_content()
 
 }
 
 const call_ajax = () => {
 
-    search_keyword = $('#movie_title').val()
+    const search_keyword = $('#movie_title').val()
     $.ajax({
         url: `https://api.themoviedb.org/3/search/movie?api_key=a467db69048c41114e360cf1b32a063f&language=en-US&query=${search_keyword}&page=1&include_adult=false`,
         type: 'GET',
