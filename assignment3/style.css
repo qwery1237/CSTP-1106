@@ -5,19 +5,31 @@ hr {
 }
 #main {
   margin-top: 30px;
+}
+#movies {
+  width: 100%;
+}
+#movies > div {
   display: flex;
+  width: 100%;
 }
-#main > * {
+#movies > div > div:first-child {
   width: 50%;
-  margin-right: 20px;
+  float: left;
 }
-#backdrop_img > img {
-  max-width: 50%;
-  min-width: 150px;
-  height: auto;
+#movies > div > div:last-child {
+  width: 50%;
+  float: right;
 }
 #page_buttons {
   margin-top: 3px;
+}
+.backdrop_img {
+  max-width: 60%;
+  min-width: 150px;
+  height: auto;
+  padding-left: 20px;
+  padding-top: 55px;
 }
 .movie_info > * {
   display: flex;

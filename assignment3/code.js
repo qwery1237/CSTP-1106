@@ -44,14 +44,18 @@ const display_content = () =>{
         if (+movie < page_size && movie_crr_i <20) {
 
             movie_info += `
-            <div id = "movie_${movie_crr_i}" class = 'movie_info'>
-                <span>#${movie_crr_i+1}</span>
-                <span>${movies_arr[movie_crr_i].original_title}</span>
-                <span>${movies_arr[movie_crr_i].overview}</span>
-                <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].poster_path}">
-                <button id = "${movies_arr[movie_crr_i].backdrop_path}" class = "backdrop_btn" >Backdrop Image!</button>
+            <div id = "movie_${movie_crr_i}">
+                <div class = 'movie_info'>
+                    <span>#${movie_crr_i+1}</span>
+                    <span>${movies_arr[movie_crr_i].original_title}</span>
+                    <span>${movies_arr[movie_crr_i].overview}</span>
+                    <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].poster_path}">
+                    <button id = 'backdrop_button_${movie_crr_i}' class = "backdrop_btn" >Backdrop Image!</button>
+                </div>
+                <div id="backdrop_img_${movie_crr_i}" class = "hidden ">
+                    <img src = "https://image.tmdb.org/t/p/w500/${movies_arr[movie_crr_i].backdrop_path} " class = 'backdrop_img'>
+                </div>
             </div>
-            <div id="backdrop_img" class = "hidden"></div>
             <hr>
             `
         
@@ -63,19 +67,17 @@ const display_content = () =>{
         }
 
     }
-    console.log(movie_info)
+
     $('#results').append(
-        `<div>
+        `<div id = 'movies'>
             ${movie_info}
         </div>`)
 
 }
 
 const get_backdrop_img = (event) => {
-
-    const backdrop_path = event.target.id
-    $('#backdrop_img').html(`<img src = "https://image.tmdb.org/t/p/w500/${backdrop_path}"></img>`)
-
+    const clicked_btn_num = event.target.id.split('_')[2]
+    $(`#backdrop_img_${clicked_btn_num}`).toggle('hidden')
 }
 
 const change_page_size = () => {
