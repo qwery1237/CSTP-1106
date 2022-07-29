@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 12</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="code.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 0px;
+        }
+        header > h1 {
+            text-align: center;
+            font-weight: bold;
+            margin: 0px;
+        }
+        nav {
+            display: flex;
+            background-color: #333333;
+            justify-content: space-between;
+        }
+        nav > div {
+            display: flex;
+        }
+        nav a {
+            display: inline-block;
+            color: #F2F2F2;
+            text-decoration: none;
+            padding: 14px 16px;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #F2F2F2;
+            color: #333333;
+        }
+        nav > a:last-child {
+            float: right;
+        }
+        main {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+        main > div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        img {
+            border-radius: 5px;
+            width: 100%;
+        }
+        footer {
+            text-align: center;
+        }
+        @media screen and (max-width: 550px) {
+            main, nav, nav > div {
+                flex-direction: column;
+            }
+        }
+        /* main > div > div {
+        } */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Responsive Web Gallery</h1>
+    </header>
+    <nav>
+        <div>
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+        </div>
+        <a href="">Link 4</a>
+    </nav>
+    <main>
+        <div>
+            <div><img src="https://picsum.photos/300/200?random=1"></div>
+            <div><img src="https://picsum.photos/300/200?random=2"></div>
+            <div><img src="https://picsum.photos/300/200?random=3"></div>
+        </div>
+        <div>
+            <div><img src="https://picsum.photos/300/200?random=4"></div>
+            <div><img src="https://picsum.photos/300/200?random=5"></div>
+            <div><img src="https://picsum.photos/300/200?random=6"></div>
+        </div>
+        <div>
+            <div><img src="https://picsum.photos/300/200?random=7"></div>
+            <div><img src="https://picsum.photos/300/200?random=8"></div>
+            <div><img src="https://picsum.photos/300/200?random=9"></div>
+        </div>
+    </main>
+    <footer>
+        <h5> 
+            Copyright © Your Website 2022
+        </h5>
+    </footer>
+</body>
+</html>
