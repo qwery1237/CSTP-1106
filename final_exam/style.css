@@ -86,8 +86,3 @@ main > div:last-child {
     border: #F2F2F2 solid 3px;
     margin: 5px;
 }
-@media screen and (max-width: 550px) {
-    main, nav, nav > div {
-        flex-direction: column;
-    }
-}
