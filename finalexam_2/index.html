@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Final Exam 2 | CSTP-1106</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    ></script>
+    <script defer src="code.js"></script>
+  </head>
+  <body>
+    <select id="page_size">
+      <option value="3">3</option>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+    <br />
+    <article>
+      Enter movie title
+      <input type="text" id="movie_title" />
+      <button id="search_button">Search!</button>
+      <div id="page_buttons"></div>
+      <div id="main">
+        <div id="results"></div>
+      </div>
+    </article>
+  </body>
+</html>

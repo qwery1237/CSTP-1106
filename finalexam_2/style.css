@@ -1,0 +1,9 @@
+
+#movies > * {
+  width: 100%;
+}
+#movies > img {
+ width: 250px;
+  height: auto;
+}
+
